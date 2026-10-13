@@ -855,3 +855,30 @@ body{
   .ledger-status{padding-left:19px}
   .ledger-link{grid-column:1 / -1;width:100%;justify-content:center}
 }
+
+
+/* Unified institutional emblem: torii threshold + sacred mirror + imperial registry ring */
+.crest{
+  display:grid;place-items:center;position:relative;flex:0 0 auto;
+  width:58px;height:58px;padding:4px;
+  border:1px solid var(--imperial-brass);
+  outline:1px solid #c3a36677;outline-offset:4px;
+  border-radius:50%;background:linear-gradient(145deg,#fff9e9,#eee0c4);
+  color:var(--imperial-rose);box-shadow:inset 0 0 0 3px #c3a36620;
+}
+.crest:before,.crest:after{content:none!important;display:none!important}
+.crest-mark{display:block;width:100%;height:100%;overflow:visible}
+.crest span{display:none}
+.footer-brand .crest{
+  background:linear-gradient(145deg,#1a3b2c,#091a12);
+  color:#e6cd91;border-color:#c3a366;outline-color:#c3a36655;
+}
+.ledger-seal{
+  display:grid;place-items:center;
+  padding:5px;
+}
+.ledger-seal .crest-mark{width:100%;height:100%;color:#f0dfb2}
+@media(max-width:700px){
+  .crest{width:39px;height:39px;padding:3px}
+  .footer-brand .crest{width:39px;height:39px}
+}
