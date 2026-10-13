@@ -148,5 +148,66 @@
     if (meter) meter.style.width = item.width;
   }));
 
+
+  // Archive catalogue entries open a detailed, in-world bibliographic record.
+  document.querySelectorAll(".archive-item").forEach(item => {
+    const openRecord = () => {
+      const id = item.querySelector(".archive-id")?.textContent?.trim() || "識別番号未詳";
+      const title = item.querySelector("h3")?.textContent?.trim() || "史料名未詳";
+      const type = item.querySelector(".archive-type")?.textContent?.trim() || "分類未詳";
+      const summary = item.querySelector("div p:last-child")?.textContent?.trim() || "公開目録に登録された史料です。";
+      showDialog("史料個別記録　／　" + id, title + "\n\n" + type + "\n\n" + summary + "\n\n公開區分：一般公開\n閲覧方法：公開抄録を閲覧できます。原本・全文の利用は、各史料の指定および所定の手続に従ってください。");
+    };
+    item.addEventListener("click", event => {
+      if (event.target.closest("a,button,input")) return;
+      openRecord();
+    });
+    item.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openRecord(); }
+    });
+  });
+
+  const bulletins = {
+    boundary: {title:"神域境界の維持と定期確認", message:"研究紀要 第238–01號\n所管：神域調査局\n\n鳥居、参道、境内標識および周辺環境の変化を定期的に記録し、過年度の調査結果と照合するための公開概要です。神域の保全に關する個別記録は、公開指定の範囲内でのみ閲覧できます。"},
+    season: {title:"四季神性反応の比較觀測", message:"研究紀要 第238–02號\n所管：神性觀測部\n\n季節ごとの観測記録を同一の基準で整理し、変動傾向を比較するための公開概要です。個別の神性反応値および未承認の観測記録は本報に含まれません。"},
+    archive: {title:"祭祀古寫本の保存と閲覧", message:"研究紀要 第238–03號\n所管：史料保存室\n\n祭祀古寫本について、書誌情報、保存状態、公開範囲を分けて記録し、閲覧時の取扱いを明確にするための案内です。閲覧時は史料番号を確認し、原本への接触や撮影について所管者の指示に従ってください。"}
+  };
+  document.querySelectorAll("[data-bulletin]").forEach(button => button.addEventListener("click", () => {
+    const item = bulletins[button.dataset.bulletin];
+    if (item) showDialog(item.title, item.message);
+  }));
+
+  const inquiryForm = document.getElementById("archiveInquiryForm");
+  const inquiryInput = document.getElementById("archiveInquiryInput");
+  const inquiryStatus = document.getElementById("archiveInquiryStatus");
+  inquiryForm?.addEventListener("submit", event => {
+    event.preventDefault();
+    const code = (inquiryInput?.value || "").trim().toUpperCase();
+    if (inquiryStatus) inquiryStatus.textContent = "";
+    const record = archiveItems.find(item => (item.querySelector(".archive-id")?.textContent || "").trim().toUpperCase() === code);
+    if (record) {
+      record.hidden = false;
+      activeFilter = "all";
+      filterButtons.forEach(button => {
+        const active = (button.dataset.filter || "all") === "all";
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      if (search) search.value = code;
+      updateArchives();
+      document.getElementById("catalog")?.scrollIntoView({behavior:"smooth",block:"start"});
+      record.focus({preventScroll:true});
+      showDialog("史料照会　／　" + code, "照会対象の登録を確認しました。\n\n目録の該当記録を表示しています。記録を選択すると、書誌情報および閲覧条件を確認できます。");
+    } else if (code === "SH-000") {
+      showDialog("照会保留　／　SH-000", "該当する記録は公開目録に登録されていません。\n\n備考：境界維持記録の照合を要す。\n\nこの照会番号に關する追加情報は、公開目録の対象外です。");
+    } else if (code === "GKT-000") {
+      showDialog("臺帳照合　／　GKT-000", "識別番号の形式を確認しました。\n\nただし、対応する公開記録は確認できません。照会履歴は所定の手続に基づき保存されます。\n\n照会先：神祇史料庫・特別整理係");
+    } else if (code === "KAGURA-238") {
+      showDialog("特別照会　／　KAGURA-238", "照会資格の形式を確認しました。\n\n閲覧許可を付与するものではありません。関連記録の取扱いについては、神祇史料庫の所管手続に従ってください。\n\n記録附記：『記録にないことは、存在しないことを意味しない。』");
+    } else {
+      showDialog("史料照会", "照会番号「" + code + "」に一致する公開目録は見つかりませんでした。識別番号を確認のうえ、再度照会してください。");
+    }
+  });
+
   updateArchives();
 })();
