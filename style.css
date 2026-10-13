@@ -351,3 +351,328 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:poi
   .director-seal{outline-offset:5px}
   .catalog-section:after{inset:10px}
 }
+
+
+/* =========================================================
+   REIRO ROMAN / IMPERIAL LUXURY INTERFACE
+   Layered lacquer, engraved brass, brocade geometry, and
+   contemporary information architecture.
+   ========================================================= */
+:root{
+  --imperial-ink:#101e19;
+  --imperial-jade:#19392d;
+  --imperial-jade-light:#315746;
+  --imperial-brass:#c3a366;
+  --imperial-brass-light:#f0dfb2;
+  --imperial-ivory:#fbf5e8;
+  --imperial-rose:#7c202c;
+}
+body{
+  background:
+    radial-gradient(ellipse at 0 18%,#d7c39a22,transparent 27rem),
+    radial-gradient(ellipse at 100% 68%,#bda36d17,transparent 30rem),
+    var(--imperial-ivory);
+}
+.topline{
+  position:relative;
+  height:36px;
+  padding-inline:clamp(20px,5.5vw,90px);
+  background:
+    linear-gradient(90deg,transparent 0 4%,#c3a36622 4.1% 4.2%,transparent 4.3% 95.7%,#c3a36622 95.8% 95.9%,transparent 96%),
+    linear-gradient(90deg,#07140f,#1a3428 50%,#07140f);
+  letter-spacing:.2em;
+}
+.topline:after{
+  content:"";
+  position:absolute;left:clamp(20px,5.5vw,90px);right:clamp(20px,5.5vw,90px);bottom:4px;
+  height:1px;background:linear-gradient(90deg,transparent,var(--imperial-brass) 12%,#765b32 50%,var(--imperial-brass) 88%,transparent);
+  opacity:.65;
+}
+.site-header{
+  padding-inline:clamp(22px,5.5vw,90px);
+  box-shadow:0 9px 24px #1c24180c,0 2px 0 #fff9 inset;
+}
+.brand-jp{letter-spacing:.2em;text-shadow:0 1px #fff9}
+.brand-en{letter-spacing:.2em}
+.primary-nav{gap:clamp(17px,2.4vw,38px)}
+.primary-nav a{letter-spacing:.16em}
+.primary-nav a:after{
+  content:"";position:absolute;left:50%;bottom:1px;width:4px;height:4px;
+  border:1px solid var(--imperial-brass);transform:translateX(-50%) rotate(45deg);
+  opacity:0;transition:opacity .2s;
+}
+.primary-nav a:hover:after{opacity:1}
+.hero{
+  min-height:740px;
+  background:
+    radial-gradient(ellipse at 79% 37%,#385744 0,#203f30 23%,#10291e 54%,#07160f 100%);
+}
+.hero-pattern{
+  background:
+    radial-gradient(circle at 77% 37%,#e2ca9122 0 6%,transparent 6.2%),
+    radial-gradient(circle at 77% 37%,transparent 0 9%,#e2ca916e 9.1% 9.2%,transparent 9.4% 16%,#e2ca9144 16.1% 16.2%,transparent 16.4% 23%,#e2ca9128 23.1% 23.2%,transparent 23.4% 30%),
+    repeating-linear-gradient(45deg,transparent 0 32px,#e2ca9109 32px 33px,transparent 33px 65px),
+    linear-gradient(90deg,#07160f 0%,#0b2118ed 35%,#0b211855 72%,#07160f66 100%);
+}
+.hero:after{
+  inset:24px;
+  border:1px solid #e6d2a0b8;
+  outline:1px solid #e6d2a044;
+  outline-offset:7px;
+  box-shadow:inset 0 0 0 7px #e6d2a008,inset 0 0 0 8px #e6d2a022;
+}
+.hero:before{
+  width:10px;
+  background:linear-gradient(180deg,var(--imperial-brass),var(--imperial-rose) 22%,var(--imperial-rose) 78%,var(--imperial-brass));
+}
+.hero-inner{
+  width:min(800px,67%);
+  padding-top:105px;
+  padding-bottom:135px;
+}
+.hero-inner:after{
+  content:"神祇研究・史料保存・神域調査";
+  position:absolute;left:calc(max(9vw,70px) - 24px);bottom:52px;
+  writing-mode:vertical-rl;color:#d6bd80;font-size:8px;letter-spacing:.32em;
+  opacity:.78;
+}
+.eyebrow{letter-spacing:.34em}
+.hero-kicker{color:#e8d7ad;letter-spacing:.24em}
+.hero h1{
+  font-size:clamp(47px,6.1vw,84px);
+  line-height:1.47;
+  letter-spacing:.16em;
+}
+.hero h1 em{
+  background:linear-gradient(90deg,#f4e5bd,#c5a263 45%,#f0dfb2 78%,#b38b49);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-text{max-width:610px;color:#e2e5d8;line-height:2.8}
+.button-gold{
+  position:relative;
+  background:linear-gradient(135deg,#f4e6bf 0%,#d0b477 48%,#b38b49 100%);
+  border:1px solid #f5e5b9;
+  box-shadow:0 0 0 3px #c3a36625,0 0 0 4px #c3a36672,0 12px 32px #0005;
+}
+.button-gold:after{
+  content:"";position:absolute;inset:4px;border:1px solid #6c4e202e;pointer-events:none;
+}
+.hero-seal{
+  width:184px;height:275px;
+  border:1px solid #f0dfb2;
+  outline:1px solid #c3a366a6;outline-offset:12px;
+  background:linear-gradient(145deg,#ffffff08,transparent 45%,#0002);
+}
+.hero-seal:before,.hero-seal:after{left:14px;right:14px;height:1px;background:#c3a366}
+.hero-seal span,.hero-seal i{text-shadow:0 2px 12px #0008}
+.hero-foot{
+  left:clamp(42px,7vw,100px);right:clamp(42px,7vw,100px);
+  font-size:8px;letter-spacing:.2em;color:#d6c7a3;
+}
+.notice-strip{
+  padding:24px clamp(25px,8vw,120px);
+  background:linear-gradient(100deg,#eee1c7,#fbf5e8 52%,#ead9b8);
+  border-bottom:1px solid #bca16a;
+}
+.notice-mark{
+  width:42px;height:42px;border:1px solid var(--imperial-brass);
+  outline:1px solid #b38b4955;outline-offset:3px;
+  background:var(--imperial-rose);color:#fff0d0;
+}
+.section{
+  padding-top:112px;padding-bottom:112px;
+}
+.section-heading{margin-bottom:48px}
+.section-heading .section-en{letter-spacing:.32em}
+.section-heading h2{
+  font-size:clamp(30px,3vw,39px);
+  letter-spacing:.2em;
+  color:#19392d;
+}
+.section-heading h2:before{
+  content:"";display:inline-block;vertical-align:middle;
+  width:24px;height:24px;margin-right:20px;
+  border:1px solid var(--imperial-brass);outline:1px solid #c3a36655;outline-offset:3px;
+  transform:rotate(45deg);
+}
+.heading-rule{
+  margin-top:24px;width:145px;height:2px;
+  background:linear-gradient(90deg,var(--imperial-rose) 0 15%,var(--imperial-brass) 15% 78%,transparent 78%);
+}
+.intro-section{
+  background:
+    linear-gradient(90deg,transparent 0 4%,#c3a3660c 4.05% 4.1%,transparent 4.15% 95.85%,#c3a3660c 95.9% 95.95%,transparent 96%),
+    radial-gradient(ellipse at 10% 40%,#d7c39a33,transparent 32rem),
+    linear-gradient(180deg,#fbf6e9,#f0e4cc);
+}
+.intro-grid{gap:clamp(45px,8vw,115px)}
+.intro-lead{
+  background:
+    linear-gradient(135deg,#fdf8ec,#f1e4c9);
+  border:1px solid #c3a366;
+  outline:1px solid #c3a36655;outline-offset:7px;
+  box-shadow:12px 12px 0 #b38b4910,24px 24px 0 #7c202c08;
+}
+.intro-quote{line-height:2.1}
+.intro-body p{line-height:2.7}
+.director-band{
+  padding-block:76px;
+  background:
+    radial-gradient(ellipse at 84% 50%,#fff9e7b0,transparent 26%),
+    repeating-linear-gradient(45deg,transparent 0 42px,#7c202c09 42px 43px,transparent 43px 86px),
+    linear-gradient(115deg,#d8c39a,#f8efdc 46%,#dfcda9);
+  box-shadow:inset 0 8px 0 #c3a36618,inset 0 -8px 0 #c3a36618;
+}
+.director-copy h2{font-size:clamp(36px,4vw,48px);letter-spacing:.24em}
+.director-label{letter-spacing:.35em}
+.director-description{line-height:2.5}
+.director-voice{
+  border-left:2px solid var(--imperial-rose);
+  background:linear-gradient(90deg,#7c202c0c,transparent);
+  padding:15px 20px;
+}
+.director-seal{
+  width:170px;height:190px;
+  border:1px solid #b38b49;
+  outline:1px solid #b38b4977;outline-offset:9px;
+  background:linear-gradient(135deg,#f9f0dc,#e9d7b5);
+}
+.research-section{background:linear-gradient(180deg,#fbf6ea,#f3e8d3)}
+.research-grid{
+  gap:0;
+  border:1px solid var(--imperial-brass);
+  outline:1px solid #c3a36644;outline-offset:6px;
+  box-shadow:0 18px 45px #2c24100c;
+}
+.research-card{
+  padding:35px 31px 29px;
+  min-height:285px;
+  background:linear-gradient(155deg,#fffaf0,#f0e3ca);
+}
+.card-number{font-size:11px;letter-spacing:.2em}
+.research-card h3{font-size:17px;letter-spacing:.1em}
+.research-card p{line-height:2.3}
+.catalog-section{
+  padding-top:110px;padding-bottom:110px;
+  background:
+    radial-gradient(ellipse at 50% 0%,#395844 0,transparent 47%),
+    radial-gradient(ellipse at 100% 100%,#7c202c33,transparent 35%),
+    linear-gradient(135deg,#071610,#18382b 50%,#091b13);
+}
+.catalog-inner{max-width:1080px}
+.catalog-section:after{inset:20px;border:1px solid #c3a3669c;outline:1px solid #c3a36644;outline-offset:6px}
+.light-heading h2{color:#f7efdc}
+.catalog-tools{
+  padding:26px 30px;
+  border:1px solid #c3a366;
+  outline:1px solid #c3a3664a;outline-offset:5px;
+  background:linear-gradient(135deg,#ffffff0b,#ffffff02);
+}
+.search-box{padding-bottom:13px}
+.search-box input{font-size:13px}
+.filter-row{gap:9px}
+.filter-button{
+  border:1px solid #a99973;
+  padding:10px 17px;
+  letter-spacing:.09em;
+}
+.filter-button.active{
+  background:linear-gradient(135deg,#e9d4a0,#bd9958);
+  color:#17271d;border-color:#f1dfb2;
+}
+.archive-list{margin-top:27px}
+.archive-item{
+  grid-template-columns:92px minmax(0,1fr) 90px;
+  padding:26px 18px;
+  gap:25px;
+  border-bottom:1px solid #c3a36655;
+}
+.archive-id{
+  color:#f1dfb2;border:1px solid #c3a36688;
+  background:#ffffff05;letter-spacing:.12em;padding:9px 6px;align-self:start;
+}
+.archive-item h3{font-size:16px;letter-spacing:.07em}
+.archive-item p:last-child{line-height:2.2}
+.archive-access{letter-spacing:.1em}
+.restricted-note{
+  margin-top:38px;padding:25px 28px;
+  background:linear-gradient(110deg,#7c202c26,#ffffff04);
+  border:1px solid #c3a366;
+  outline:1px solid #c3a36644;outline-offset:5px;
+}
+.outline-button{border-color:#c3a366;color:#f0dfb2;padding:12px 18px}
+.notices-section{background:linear-gradient(180deg,#f8f0df,#eee0c4)}
+.notice-row{
+  grid-template-columns:145px 105px minmax(0,1fr) 25px;
+  padding:23px 12px;
+}
+.notice-row strong{font-size:13px}
+.network-section{
+  padding-top:105px;padding-bottom:115px;
+  background:
+    radial-gradient(ellipse at 0 0,#fff7e64d,transparent 32rem),
+    linear-gradient(135deg,#e5d3af,#f8efde 50%,#e5d3af);
+}
+.network-grid{
+  box-shadow:0 18px 45px #38260e12;
+  border:1px solid var(--imperial-brass);
+}
+.network-card{padding:30px 23px;min-height:225px}
+.network-name{font-size:18px;letter-spacing:.1em}
+.network-role{font-size:10px;line-height:2.2}
+.site-footer{
+  padding-top:55px;
+  background:
+    repeating-linear-gradient(45deg,transparent 0 45px,#c3a36608 45px 46px,transparent 46px 90px),
+    radial-gradient(ellipse at 50% 0%,#2b4a38 0%,transparent 58%),
+    linear-gradient(180deg,#11271c,#06120d);
+}
+.site-footer:before{
+  content:"";position:absolute;left:0;right:0;top:0;height:11px;
+  background:linear-gradient(180deg,#c3a366,#7c202c 45%,#c3a366);
+}
+.footer-main{padding-bottom:43px}
+.footer-bottom{padding-top:20px;padding-bottom:20px;letter-spacing:.13em}
+:focus-visible{outline:2px solid #b38b49;outline-offset:4px}
+@media(max-width:1000px){
+  .hero-inner{width:75%}
+  .hero-seal{width:135px;height:205px;right:6%}
+  .section{padding-top:82px;padding-bottom:82px}
+  .research-card{padding:27px 23px}
+}
+@media(max-width:700px){
+  .topline{height:28px;padding-inline:16px;letter-spacing:.06em}
+  .topline:after{left:16px;right:16px;bottom:3px}
+  .site-header{padding-inline:20px}
+  .brand:after{left:-6px;width:2px}
+  .brand-jp{letter-spacing:.04em}
+  .primary-nav{gap:0}
+  .hero{min-height:680px}
+  .hero:after{inset:12px}
+  .hero-inner{width:100%;padding:105px 28px 100px}
+  .hero-inner:after{left:14px;bottom:125px;font-size:6px}
+  .hero h1{font-size:clamp(35px,9vw,47px);letter-spacing:.06em}
+  .hero-text{line-height:2.4;font-size:10px}
+  .hero-seal{width:48px;height:72px;right:25px;top:25px;outline-offset:4px}
+  .hero-seal:before,.hero-seal:after{left:5px;right:5px}
+  .hero-foot{left:25px;right:25px;letter-spacing:.05em}
+  .notice-strip{padding:17px 20px}
+  .section{padding:68px 24px}
+  .section-heading h2{font-size:26px;letter-spacing:.1em}
+  .section-heading h2:before{width:12px;height:12px;margin-right:13px}
+  .intro-grid{gap:30px}
+  .director-band{padding:42px 25px}
+  .director-copy h2{font-size:30px;letter-spacing:.13em}
+  .director-seal{width:80px;height:100px;outline-offset:4px}
+  .research-card{padding:24px 20px;min-height:0}
+  .catalog-section{padding:72px 24px}
+  .catalog-section:after{inset:10px}
+  .catalog-tools{padding:16px}
+  .archive-item{grid-template-columns:59px minmax(0,1fr);gap:12px;padding:20px 3px}
+  .archive-item h3{font-size:12px}
+  .archive-access{grid-column:2}
+  .notice-row{grid-template-columns:1fr auto 15px}
+  .network-section{padding:70px 24px}
+  .network-card{min-height:155px;padding:20px}
+  .footer-main{gap:20px}
+}
